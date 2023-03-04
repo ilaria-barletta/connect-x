@@ -19,14 +19,19 @@ def choose_option(options):
     for index, key in enumerate(options):
         print(f'{index}) {key}')
 
-    option = input("Please choose an option: ")
-    option = int(option)
     max_option = len(options.keys())
-    if option >= 0 and option < max_option: 
-        key = list(options.keys())[option]
-        value = options[key]
-        value()
-    else:
+    option = input("Please choose an option: ")
+    try:
+        option = int(option)
+        if option >= 0 and option < max_option: 
+            key = list(options.keys())[option]
+            value = options[key]
+            value()
+        else:
+            # The -1 fixes the issue caused by the options starting from 0
+            print(f"Invalid, please select a value between 0 and {max_option - 1}")
+            choose_option(options)
+    except ValueError:
         # The -1 fixes the issue caused by the options starting from 0
         print(f"Invalid, please select a value between 0 and {max_option - 1}")
         choose_option(options)
