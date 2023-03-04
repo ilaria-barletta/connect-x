@@ -38,6 +38,8 @@ def choose_option(options):
 
 
 def rules():
+    '''This function handles the rules of the game and provides the user with 
+    2 options: start the game or exit the game'''
     print("Rules")
     options = {
         "Start": pick_level,
@@ -47,6 +49,8 @@ def rules():
     
 
 def pick_level():
+    '''This function is so that the user can pick a difficulty-level for the game
+    It contains in-line lambda fuctions for each one of the levels available'''
     print("Start")
     options = {
         # lambda here is to avoid repetitions in defining functions
@@ -64,6 +68,9 @@ def pick_level():
 
 
 def confirm_game_with_level(level):
+    '''This function confirms the level selected by the user and lets
+    them decide if they want to continue or go back and make a 
+    different choice'''
     print(f"You have selected {level} game, happy to proceed?")
     options = {
         "Yes": lambda: start_game_with_level(level), 
@@ -73,10 +80,12 @@ def confirm_game_with_level(level):
 
 
 def start_game_with_level(level):
+    '''This function starts the actual game according to the level selected'''
     print(f"Starting {level} game")
 
 
 def exit_hangman():
+    '''This function prints a message to the user when they exit the game'''
     print("Exit")
 
 
