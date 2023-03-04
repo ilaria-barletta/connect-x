@@ -49,25 +49,31 @@ def rules():
 def start():
     print("Start")
     options = {
-        "Easy": easy_game,
-        "Intermediate": intermediate_game,
-        "Hard": hard_game,
+        # lambda here is to avoid repetitions in defining functions
+        # this same result could be obtained with: 
+        # def easy_game():
+        #   game_with_level("easy")
+        # but we would need a function for each level
+        "Easy": lambda: game_with_level("easy"),
+        "Intermediate": lambda: game_with_level("intermediate"),
+        "Hard": lambda: game_with_level("hard"),
         "Rules": rules,
         "Exit": exit_hangman
     }
     choose_option(options)
 
 
-def easy_game():
-    print("easy_game")
+def game_with_level(level):
+    print(f"You have selected {level} game, happy to proceed?")
+    options = {
+        "Yes": lambda: start_game_with_level(level), 
+        "No": start, 
+    }
+    choose_option(options)
 
 
-def intermediate_game():
-    print("intermediate_game")
-
-
-def hard_game():
-    print("hard_game")
+def start_game_with_level(level):
+    print(f"Starting {level} game")
 
 
 def exit_hangman():
