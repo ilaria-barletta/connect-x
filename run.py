@@ -37,16 +37,21 @@ def choose_option(options):
         choose_option(options)
 
 
-def exit_hangman():
-    print("Exit")
-
-
 def rules():
     print("Rules")
-
-
+    options = {
+        "Start": start,
+        "Exit": exit_hangman
+    }
+    choose_option(options)
+    
+    
 def start():
     print("Start")
+
+
+def exit_hangman():
+    print("Exit")
 
 
 welcome_to_hangman()
