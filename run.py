@@ -45,9 +45,29 @@ def rules():
     }
     choose_option(options)
     
-    
+
 def start():
     print("Start")
+    options = {
+        "Easy": easy_game,
+        "Intermediate": intermediate_game,
+        "Hard": hard_game,
+        "Rules": rules,
+        "Exit": exit_hangman
+    }
+    choose_option(options)
+
+
+def easy_game():
+    print("easy_game")
+
+
+def intermediate_game():
+    print("intermediate_game")
+
+
+def hard_game():
+    print("hard_game")
 
 
 def exit_hangman():
