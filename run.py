@@ -29,11 +29,11 @@ def choose_option(options):
             value()
         else:
             # The -1 fixes the issue caused by the options starting from 0
-            print(f"Invalid, please select a value between 0 and {max_option - 1}")
+            print(f"Invalid,select a value between 0 and {max_option - 1}")
             choose_option(options)
     except ValueError:
         # The -1 fixes the issue caused by the options starting from 0
-        print(f"Invalid, please select a value between 0 and {max_option - 1}")
+        print(f"Invalid,select a value between 0 and {max_option - 1}")
         choose_option(options)
 
 
@@ -49,8 +49,9 @@ def rules():
     
 
 def pick_level():
-    '''This function is so that the user can pick a difficulty-level for the game
-    It contains in-line lambda fuctions for each one of the levels available'''
+    '''This function is so that the user can pick a difficulty-level for the 
+    game. It contains in-line lambda fuctions for each one of the 
+    levels available'''
     print("Start")
     options = {
         # lambda here is to avoid repetitions in defining functions
@@ -91,3 +92,32 @@ def exit_hangman():
 
 welcome_to_hangman()
 
+
+class Game:
+    '''This class handles running the game'''
+    def __init__(self, level):
+        self.word = "bazinga"
+        self.lives = 6
+        self.correct_guesses = []
+   
+    def print_lives(self):
+        '''This function prints the remaining lives'''
+        print(f"Remaining lives: {self.lives}")
+
+    def print_word(self):
+        '''This function prints the word, if the guessed letter is
+        present in the word, it shows the letter, if not, it shows an
+        empty space'''
+        for letter in self.word:
+            if letter in self.correct_guesses:
+                print(letter, end=" ")
+            else:
+                print("-", end=" ")
+        print("\n")
+
+    def update_game(self, letter):
+        '''This function updates the game after a guess.'''
+        if letter in self.word:
+            self.correct_guesses.append(letter)
+        else:
+            self.lives = self.lives - 1
