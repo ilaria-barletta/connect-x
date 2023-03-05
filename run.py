@@ -121,3 +121,22 @@ class Game:
             self.correct_guesses.append(letter)
         else:
             self.lives = self.lives - 1
+
+    def has_guessed_all_letters(self):
+        '''This function returns true if the user has guessed 
+        all the letters'''
+        unique_letters = set(self.word)
+        if len(unique_letters) == len(self.correct_guesses):
+            return True
+        else:
+            return False
+
+    def game_over(self):
+        '''This function returns true if there are no more
+        lives or if the user has guessed all the right letters'''
+        if self.lives == 0 or self.has_guessed_all_letters():
+            return True
+        else:
+            return False
+
+    
