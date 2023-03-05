@@ -83,14 +83,13 @@ def confirm_game_with_level(level):
 def start_game_with_level(level):
     '''This function starts the actual game according to the level selected'''
     print(f"Starting {level} game")
+    game = Game(level)
+    game.play()
 
 
 def exit_hangman():
     '''This function prints a message to the user when they exit the game'''
     print("Exit")
-
-
-welcome_to_hangman()
 
 
 class Game:
@@ -166,3 +165,16 @@ class Game:
     
         return letter 
           
+    def play(self):
+        '''This is the main function of the game. It keeps asking
+        the user to guess and update the game until it's over'''
+        while not self.game_over():
+            self.print_lives()
+            self.print_word()
+            letter = self.get_letter()
+            self.update_game(letter)
+
+
+welcome_to_hangman()
+
+
