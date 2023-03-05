@@ -139,4 +139,11 @@ class Game:
         else:
             return False
 
+    def did_win(self):
+        '''This function returns true if the user won the game'''
+        if self.lives > 0 and self.has_guessed_all_letters():
+            return True
+        else:
+            return False
+
     
