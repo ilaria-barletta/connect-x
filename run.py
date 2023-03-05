@@ -146,4 +146,23 @@ class Game:
         else:
             return False
 
+    def get_letter(self):
+        '''This function asks the user for a letter and returns
+        it if it is valid and it hasn't been guessed before.
+        If user enters an uppercase letter, it will be accepted and converted'''
+        letter = input("Please write a letter: ").lower()
+        if letter in self.correct_guesses:  # letter already entered
+            print(f"You have already guessed {letter}, try again")
+            return self.get_letter()
+        elif letter == "":  # user enters nothing
+            print("You need to enter a letter, try again")
+            return self.get_letter()
+        elif len(letter) > 1:  # user enters more than 1 letter
+            print("You need to enter only one letter, try again")
+            return self.get_letter()
+        elif not letter.isalpha():  # check if character is an alphabet letter
+            print("You need to enter a letter [a-z], try again")
+            return self.get_letter()
     
+        return letter 
+          
