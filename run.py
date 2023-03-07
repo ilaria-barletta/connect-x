@@ -95,7 +95,7 @@ def confirm_game_with_level(level):
 def start_game_with_level(level):
     '''This function starts the actual game according to the level selected'''
     print(f"Starting {level} game")
-    game = Game(level)
+    game = Game(level, words)
     game.play()
 
 
@@ -135,8 +135,9 @@ class Words:
 
 class Game:
     '''This class handles running the game'''
-    def __init__(self, level):
-        self.word = "bazinga"
+    def __init__(self, level, words):
+        # this will convert upper cases to lower cases
+        self.word = words.get_random_word(level).lower() 
         self.lives = 6
         self.correct_guesses = []
    
@@ -216,6 +217,8 @@ class Game:
             self.update_game(letter)
 
 
+# load words when the program starts 
+words = Words()
 welcome_to_hangman()
 
 
