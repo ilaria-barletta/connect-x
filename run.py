@@ -1,3 +1,4 @@
+import random  # this is needed to pick a random word
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -120,6 +121,15 @@ class Words:
             self.easy_words.append(row[0])
             self.intermediate_words.append(row[1])
             self.hard_words.append(row[2])
+
+    def get_random_word(self, level):
+        '''This function returns a random word from the words sheet'''
+        if level == "easy":
+            return random.choice(self.easy_words)
+        if level == "intermediate":
+            return random.choice(self.intermediate_words)
+        if level == "hard":
+            return random.choice(self.hard_words)
 
 
 
