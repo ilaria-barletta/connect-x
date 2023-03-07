@@ -1,6 +1,17 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+import gspread
+from google.oauth2.service_account import Credentials
+
+SCOPE = [
+    "https://www.googleapis.com/auth/spreadsheets",
+    "https://www.googleapis.com/auth/drive.file",
+    "https://www.googleapis.com/auth/drive"
+    ]
+
+CREDS = Credentials.from_service_account_file('creds.json')
+SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+SHEET = GSPREAD_CLIENT.open('hangman_words')
+
 
 def welcome_to_hangman():
     '''This is the main function that is called first when the game starts'''
@@ -90,6 +101,26 @@ def start_game_with_level(level):
 def exit_hangman():
     '''This function prints a message to the user when they exit the game'''
     print("Exit")
+
+
+class Words:
+    '''This class gets a random word as per selected level from
+    the google sheet'''
+    def __init__(self):
+        worksheet = SHEET.worksheet('words')
+        data = worksheet.get_all_values()
+        self.easy_words = []
+        self.intermediate_words = []
+        self.hard_words = []
+        for i, row in enumerate(data):
+            #  this is to skip the first row in the
+            #  sheet.that row defines the levels.
+            if i == 0:  
+                continue
+            self.easy_words.append(row[0])
+            self.intermediate_words.append(row[1])
+            self.hard_words.append(row[2])
+
 
 
 class Game:
