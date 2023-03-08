@@ -97,6 +97,34 @@ def start_game_with_level(level):
     print(f"Starting {level} game")
     game = Game(level, words)
     game.play()
+    if (game.did_win()):
+        did_win_screen(game.word)
+    else:
+        game_over_screen(game.word)
+
+
+def game_over_screen(word):
+    '''This function tells the user that the game is over.
+    shows the word they didn't guess and gives them the option to
+    start another game or exit the game'''
+    print(f"Game Over! The word you died for was: {word}, try again!")
+    options = {
+        "start": pick_level,
+        "exit": exit_hangman
+    }
+    choose_option(options)
+
+
+def did_win_screen(word):
+    '''This function tells the user that they won the game
+    And gives them the option to start another game or exit'''
+    print(f"The winning word is: {word}")
+    print("Well done, you're still alive, you won!")
+    options = {
+        "start": pick_level,
+        "exit": exit_hangman
+    }
+    choose_option(options)
 
 
 def exit_hangman():
@@ -130,7 +158,6 @@ class Words:
             return random.choice(self.intermediate_words)
         if level == "hard":
             return random.choice(self.hard_words)
-
 
 
 class Game:
