@@ -16,7 +16,9 @@ SHEET = GSPREAD_CLIENT.open('hangman_words')
 
 def welcome_to_hangman():
     '''This is the main function that is called first when the game starts'''
-    print("Welcome to Hangman")
+    print('''|_  _  _  _  _ _  _  _ 
+| |(_|| |(_|| | |(_|| |
+          _|           ''')  # this prints "hangman". 
     options = {
         "Rules": rules,
         "Start": pick_level,
