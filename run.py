@@ -223,6 +223,9 @@ class Game:
    
     def print_lives(self):
         '''This function prints the remaining lives'''
+        # this picks the correct art starting from 6 
+        # (total amount of lives) and multiplies it by
+        # -1 so the result is always positive
         index = (self.lives - 6) * -1
         art = HANGMANPICS[index]
         print(art)
