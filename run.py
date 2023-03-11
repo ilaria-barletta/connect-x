@@ -220,6 +220,7 @@ class Game:
         self.word = words.get_random_word(level).lower() 
         self.lives = 6
         self.correct_guesses = []
+        self.hint_used = False
    
     def print_lives(self):
         '''This function prints the remaining lives'''
@@ -248,6 +249,12 @@ class Game:
         else:
             self.lives = self.lives - 1
 
+    def can_get_hint(self):
+        '''This function defines when the user can request an hint'''
+        unique_letters = set(self.word)
+        has_one_letter_remaining = len(unique_letters) == len(self.correct_guesses) -1
+        return not has_one_letter_remaining and not self.hint_used
+
     def has_guessed_all_letters(self):
         '''This function returns true if the user has guessed 
         all the letters'''
@@ -272,12 +279,33 @@ class Game:
         else:
             return False
 
+    def get_random_not_guessed_letter(self):
+        '''This function returns a random letter from the word that 
+        hasn't been guessed'''
+        random_letter = random.choice(self.word)
+        while random_letter in self.correct_guesses:
+            random_letter = random.choice(self.word)
+        return random_letter
+    
+    def get_hint(self):
+        '''This function updates hint used and return random letter'''
+        self.hint_used = True
+        return self.get_random_not_guessed_letter()
+
     def get_letter(self):
-        '''This function asks the user for a letter and returns
+        '''This function offers the option to get an hint if possible. 
+        It asks the user for a letter and returns
         it if it is valid and it hasn't been guessed before.
-        If user enters an uppercase letter, it will be accepted and converted'''
-        letter = input("Please write a letter: ").lower()
-        if letter in self.correct_guesses:  # letter already entered
+        If user enters an uppercase letter, 
+        it will be accepted and converted'''
+        message = "Please write a letter: "
+        if self.can_get_hint():
+            message = "Please write a letter (or type 'hint' to reveal one): "
+
+        letter = input(message).lower()
+        if self.can_get_hint() and letter == "hint":
+            return self.get_hint()
+        elif letter in self.correct_guesses:  # letter already entered
             print(f"You have already guessed {letter}, try again")
             return self.get_letter()
         elif letter == "":  # user enters nothing
