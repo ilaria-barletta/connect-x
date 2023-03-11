@@ -105,7 +105,16 @@ def choose_option(options):
 def rules():
     '''This function handles the rules of the game and provides the user with 
     2 options: start the game or exit the game'''
-    print("Rules")
+    print('''|_  _  _  _  _ _  _  _ 
+| |(_|| |(_|| | |(_|| |
+          _|           ''')
+    print("Welcome!Your goal is to guess the right word while remaining alive.")
+    print("You have the complete English alphabet to choose from.")
+    print("Pick the right letter and you’ll be closer to the solution.")
+    print("Pick the wrong one and one life will be taken from you.")
+    print("You can even ask for one hint. Use it wisely.")
+    print("Thread lightly, you have only 6 lives.")
+    print("Like a cat, more or less. Have fun!")
     options = {
         "Start": pick_level,
         "Exit": exit_hangman
