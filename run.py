@@ -182,7 +182,10 @@ def did_win_screen(word):
 
 def exit_hangman():
     '''This function prints a message to the user when they exit the game'''
-    print("Exit")
+    print('''|_  _  _  _  _ _  _  _ 
+| |(_|| |(_|| | |(_|| |
+          _|           ''')
+    print("Thank you for visiting, come back soon. Goodbye!")
 
 
 class Words:
@@ -286,7 +289,7 @@ class Game:
         while random_letter in self.correct_guesses:
             random_letter = random.choice(self.word)
         return random_letter
-    
+   
     def get_hint(self):
         '''This function updates hint used and return random letter'''
         self.hint_used = True
