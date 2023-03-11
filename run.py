@@ -13,6 +13,57 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_words')
 
+HANGMANPICS = ['''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========''']
+
 
 def welcome_to_hangman():
     '''This is the main function that is called first when the game starts'''
@@ -172,7 +223,9 @@ class Game:
    
     def print_lives(self):
         '''This function prints the remaining lives'''
-        print(f"Remaining lives: {self.lives}")
+        index = (self.lives - 6) * -1
+        art = HANGMANPICS[index]
+        print(art)
 
     def print_word(self):
         '''This function prints the word, if the guessed letter is
