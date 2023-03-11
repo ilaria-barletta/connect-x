@@ -16,7 +16,7 @@ SHEET = GSPREAD_CLIENT.open('hangman_words')
 HANGMANPICS = ['''
   *---*
   |   |
-  |   
+  |
   |
   |
   |
@@ -37,39 +37,39 @@ HANGMANPICS = ['''
 =========''', '''
   *~~~*
   |   |
-  |   O   
-  |  /|   
+  |   O
+  |  -|
   |
   |
 =========''', '''
   *~~~*
   |   |
-  |   O   
-  |  /|\  
+  |   O
+  |  -|-
   |
   |
 =========''', '''
   *~~~*
   |   |
-  |   O   
-  |  /|\  
-  |  /    
+  |   O
+  |  -|-
+  |  -
   |
 =========''', '''
   *~~~*
   |   |
-  |   O   
-  |  /|\  
-  |  / \  
+  |   O
+  |  -|-
+  |  - -
   |
 =========''']
 
 
 def welcome_to_hangman():
     '''This is the main function that is called first when the game starts'''
-    print('''|_  _  _  _  _ _  _  _ 
+    print('''|_  _  _  _  _ _  _  _
 | |(_|| |(_|| | |(_|| |
-          _|           ''')  # this prints "hangman". 
+          _|           ''')  # this prints "hangman".
     options = {
         "Rules": rules,
         "Start": pick_level,
@@ -77,7 +77,7 @@ def welcome_to_hangman():
     }
     choose_option(options)
 
-    
+
 def choose_option(options):
     '''This function takes a dictionary of options, lets the user choose one
     and validates it'''
@@ -88,7 +88,7 @@ def choose_option(options):
     option = input("Please choose an option: ")
     try:
         option = int(option)
-        if option >= 0 and option < max_option: 
+        if option >= 0 and option < max_option:
             key = list(options.keys())[option]
             value = options[key]
             value()
@@ -103,13 +103,13 @@ def choose_option(options):
 
 
 def rules():
-    '''This function handles the rules of the game and provides the user with 
+    '''This function handles the rules of the game and provides the user with
     2 options: start the game or exit the game'''
-    print('''|_  _  _  _  _ _  _  _ 
+    print('''|_  _  _  _  _ _  _  _
 | |(_|| |(_|| | |(_|| |
           _|           ''')
-    print("Welcome!Your goal is to guess the right word while remaining alive.")
-    print("You have the complete English alphabet to choose from.")
+    print("Welcome!Your goal is to guess the right word and stay alive.")
+    print("You have the complete english alphabet to choose from.")
     print("Pick the right letter and you’ll be closer to the solution.")
     print("Pick the wrong one and one life will be taken from you.")
     print("You can even ask for one hint. Use it wisely.")
@@ -120,16 +120,16 @@ def rules():
         "Exit": exit_hangman
     }
     choose_option(options)
-    
+
 
 def pick_level():
-    '''This function is so that the user can pick a difficulty-level for the 
-    game. It contains in-line lambda fuctions for each one of the 
+    '''This function is so that the user can pick a difficulty-level for the
+    game. It contains in-line lambda fuctions for each one of the
     levels available'''
     print("Start")
     options = {
         # lambda here is to avoid repetitions in defining functions
-        # this same result could be obtained with: 
+        # this same result could be obtained with:
         # def easy_game():
         #   game_with_level("easy")
         # but we would need a function for each level
@@ -144,12 +144,12 @@ def pick_level():
 
 def confirm_game_with_level(level):
     '''This function confirms the level selected by the user and lets
-    them decide if they want to continue or go back and make a 
+    them decide if they want to continue or go back and make a
     different choice'''
     print(f"You have selected {level} game, happy to proceed?")
     options = {
-        "Yes": lambda: start_game_with_level(level), 
-        "No": pick_level, 
+        "Yes": lambda: start_game_with_level(level),
+        "No": pick_level,
     }
     choose_option(options)
 
@@ -191,7 +191,7 @@ def did_win_screen(word):
 
 def exit_hangman():
     '''This function prints a message to the user when they exit the game'''
-    print('''|_  _  _  _  _ _  _  _ 
+    print('''|_  _  _  _  _ _  _  _
 | |(_|| |(_|| | |(_|| |
           _|           ''')
     print("Thank you for visiting, come back soon. Goodbye!")
@@ -209,7 +209,7 @@ class Words:
         for i, row in enumerate(data):
             #  this is to skip the first row in the
             #  sheet.that row defines the levels.
-            if i == 0:  
+            if i == 0:
                 continue
             self.easy_words.append(row[0])
             self.intermediate_words.append(row[1])
@@ -229,14 +229,14 @@ class Game:
     '''This class handles running the game'''
     def __init__(self, level, words):
         # this will convert upper cases to lower cases
-        self.word = words.get_random_word(level).lower() 
+        self.word = words.get_random_word(level).lower()
         self.lives = 6
         self.correct_guesses = []
         self.hint_used = False
-   
+
     def print_lives(self):
         '''This function prints the remaining lives'''
-        # this picks the correct art starting from 6 
+        # this picks the correct art starting from 6
         # (total amount of lives) and multiplies it by
         # -1 so the result is always positive
         index = (self.lives - 6) * -1
@@ -264,11 +264,12 @@ class Game:
     def can_get_hint(self):
         '''This function defines when the user can request an hint'''
         unique_letters = set(self.word)
-        has_one_letter_remaining = len(unique_letters) == len(self.correct_guesses) -1
+        has_one_letter_remaining = \
+            len(unique_letters) == len(self.correct_guesses) - 1
         return not has_one_letter_remaining and not self.hint_used
 
     def has_guessed_all_letters(self):
-        '''This function returns true if the user has guessed 
+        '''This function returns true if the user has guessed
         all the letters'''
         unique_letters = set(self.word)
         if len(unique_letters) == len(self.correct_guesses):
@@ -292,23 +293,23 @@ class Game:
             return False
 
     def get_random_not_guessed_letter(self):
-        '''This function returns a random letter from the word that 
+        '''This function returns a random letter from the word that
         hasn't been guessed'''
         random_letter = random.choice(self.word)
         while random_letter in self.correct_guesses:
             random_letter = random.choice(self.word)
         return random_letter
-   
+
     def get_hint(self):
         '''This function updates hint used and return random letter'''
         self.hint_used = True
         return self.get_random_not_guessed_letter()
 
     def get_letter(self):
-        '''This function offers the option to get an hint if possible. 
+        '''This function offers the option to get an hint if possible.
         It asks the user for a letter and returns
         it if it is valid and it hasn't been guessed before.
-        If user enters an uppercase letter, 
+        If user enters an uppercase letter,
         it will be accepted and converted'''
         message = "Please write a letter: "
         if self.can_get_hint():
@@ -329,9 +330,9 @@ class Game:
         elif not letter.isalpha():  # check if character is an alphabet letter
             print("You need to enter a letter [a-z], try again")
             return self.get_letter()
-    
-        return letter 
-          
+
+        return letter
+
     def play(self):
         '''This is the main function of the game. It keeps asking
         the user to guess and update the game until it's over'''
@@ -345,8 +346,6 @@ class Game:
             self.print_lives()
 
 
-# load words when the program starts 
+# load words when the program starts
 words = Words()
 welcome_to_hangman()
-
-
