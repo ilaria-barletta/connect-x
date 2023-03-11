@@ -340,6 +340,9 @@ class Game:
             self.print_word()
             letter = self.get_letter()
             self.update_game(letter)
+        if not self.did_win():
+            # print the final hangman
+            self.print_lives()
 
 
 # load words when the program starts 
