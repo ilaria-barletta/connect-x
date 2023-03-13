@@ -37,6 +37,9 @@ Multiple aspects have been covered here in order to make sure the user enters a 
 The game can either end when the user has guessed all the letters not using all the lives hence staying alive or when they haven't completed the word but they have finished their lives. In the first scenario they won the game and a winning message will be displayes, in the second scenario they have lost and will be informed of the same via a "you have died" message. In both cases they will be asked if they want to play again and offered options (start or exit). 
 ![The game can end either when the user wins or when they used all their lives](images/hangman_win_loose.png)
 
+7. <u>Word sheet:</u>
+The words are loaded from https://docs.google.com/spreadsheets/d/1aRm2vaK6hhwBCVrdoNGkP30kM_ICPRoBVCcb7OAEG1s/edit?usp=sharing 
+
 ### Future Features
 1. Add the option to select a word category to pick from (movies, books, songs)
 2. Allow the user to guess the full mistery word at any point during the game. 
