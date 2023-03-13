@@ -208,7 +208,7 @@ class Words:
         self.hard_words = []
         for i, row in enumerate(data):
             #  this is to skip the first row in the
-            #  sheet.that row defines the levels.
+            #  sheet. That row defines the levels.
             if i == 0:
                 continue
             self.easy_words.append(row[0])
