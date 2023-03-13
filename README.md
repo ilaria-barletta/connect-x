@@ -89,7 +89,7 @@ To solve this I have added `self.print_lives()` so that when they loose the game
 No bugs remaining
 
 ___
-## Deployement
+## Deployment
 ___
 ## Credits
 

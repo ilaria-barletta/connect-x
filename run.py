@@ -1,4 +1,4 @@
-import random  # this is needed to pick a random word
+import random # this is needed to pick a random word
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -259,6 +259,7 @@ class Game:
         if letter in self.word:
             self.correct_guesses.append(letter)
         else:
+            print(f"Sorry, {letter} is not in the word!")
             self.lives = self.lives - 1
 
     def can_get_hint(self):
