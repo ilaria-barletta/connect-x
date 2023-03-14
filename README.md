@@ -2,7 +2,7 @@
 
 This is a Python terminal game addressed to word games lovers. The main goal is to guess the mistery word before loosing all the given lives. The user can input their choices in the terminal, a number, a single letter or the word 'hint' depending on the stage of the game they are in and they will receive a response according to their pick. The game ends with a win or if they use all their lives without completing the word. Some art  has been added so that the hangman results more appealing and user friendly. 
 
-Here is the live version of my project (!!!!!!add link once deployed)
+Here is the live version of my project: https://hangman-word-game.herokuapp.com/
 
 ___
 ## How to play
@@ -131,6 +131,8 @@ The project has been deployed using Heroku. Here are the step to follow for the 
 3. Add buildpacks in order to install the other dependencies needed. In particular add Python and NodeJS in this order and then hit on Add buildpack
 4. Navigate to the deploy section and select Github as deployment method. After confirming that we want to connect to Github we can then search for the Github repository name. Once we find it we can click on connect. 
 5. Scroll down and select enable automatic deploys
+
+The live link to my project is here: https://hangman-word-game.herokuapp.com/
 
 
 
