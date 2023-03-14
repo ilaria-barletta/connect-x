@@ -85,7 +85,7 @@ def choose_option(options):
         print(f'{index}) {key}')
 
     max_option = len(options.keys())
-    option = input("Please choose an option: ")
+    option = input("Please choose an option: \n")
     try:
         option = int(option)
         if option >= 0 and option < max_option:
@@ -314,9 +314,9 @@ class Game:
         it if it is valid and it hasn't been guessed before.
         If user enters an uppercase letter,
         it will be accepted and converted'''
-        message = "Please write a letter: "
+        message = "Please write a letter: \n"
         if self.can_get_hint():
-            message = "Please write a letter (or type 'hint' to reveal one): "
+            message = "Please write a letter (or type 'hint' to get one): \n"
 
         letter = input(message).lower()
         if self.can_get_hint() and letter == "hint":

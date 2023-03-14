@@ -7,7 +7,7 @@ Here is the live version of my project (!!!!!!add link once deployed)
 ___
 ## How to play
 
-The game starts with a welcome screen where the user finds the title of the game and 3 options. They can go to the rules, start the game, or exit the game. To start the game the user needs to select the number matching the "start" option. At this point they are provided with new options with different levels as the game consists of 3 difficulty levels. There is an easy level where the word that they need to guess is short (4/5 letters), there is an intermediate level for medium lenght words (7/8 letters) and an hard level for long words (from 10 letters). Once the user selects the preferred level, they are asked once againto confirm their choice before proceeding. When they are happy with their choice, the game can start. The user starts guessing letters and if they haven't used one already they can also ask for a hint so that a random letter from the mistery word is added to the screen for them. The user has only 1 hint per game and 6 lives, one life will be taken from them every time they pick the wrong letter. The game ends either when the user successfully guesses the word while still alive or if they use all their lives and they die. A new set of options with the opportunity to start a new game or exit appears to them after every win/defeat. 
+The game starts with a welcome screen where the user finds the title of the game and 3 options. They can go to the rules, start the game, or exit the game. To start the game the user needs to select the number matching the "start" option. At this point they are provided with new options with different levels as the game consists of 3 difficulty levels. There is an easy level where the word that they need to guess is short (4/5 letters), there is an intermediate level for medium length words (7/8 letters) and an hard level for long words (from 10 letters). Once the user selects the preferred level, they are asked once again to confirm their choice before proceeding. When they are happy with their choice, the game can start. The user starts guessing letters and if they haven't used one already they can also ask for a hint so that a random letter from the mystery word is added to the screen for them. The user has only 1 hint per game and 6 lives, one life will be taken from them every time they pick the wrong letter. The game ends either when the user successfully guesses the word while still alive or if they use all their lives and they die. A new set of options with the opportunity to start a new game or exit appears to them after every win/defeat. 
 
 ___
 ## Features
@@ -27,7 +27,7 @@ This is just a quick message shown to the user when they want to exit the game a
 ![The exit page is a goodbye message to the user when they decide to leave the game](images/hangman_exit_screen.png)
 
 4. <u>Play game:</u><br>
-If the user follows the instructions and decides to proceed in order to play a game they will be given the option to select their preferred difficulty level. The game has 3 levels: easy, intermediate and hard. The difference in levels depends on the lenght of the words they need to guess in order to win. Easy has short words (4/5 letters), intermediate has medium lenght words and hard has particularly long/hard words. 
+If the user follows the instructions and decides to proceed in order to play a game they will be given the option to select their preferred difficulty level. The game has 3 levels: easy, intermediate and hard. The difference in levels depends on the lenght of the words they need to guess in order to win. Easy has short words (4/5 letters), intermediate has medium length words and hard has particularly long/hard words. 
 ![The game is made of three levels](images/hangman_levels.png)
 
 When they pick their preferred level they are then asked if they are happy with their choice and if they are,the game begins. 
@@ -93,13 +93,13 @@ To fix this I had to skip the first row of words from the sheet (that simply def
 `2`
 
 **Expected** :
-When loosing the game the final complete hangmam needs to be shown to the user. 
+When losing the game the final complete hangmam needs to be shown to the user. 
 
 **Testing** :
-I played the game multiple times loosing on purpose to test it.  
+I played the game multiple times losing on purpose to test it.  
 
 **Result** :
-When loosing the game I noticed how the "Game over" message was showing at the right time but the hangman displayed was still incomplete (it still had a missing leg). This was confusing and deceptive as the user, seeing the image, could have been under the impression of having another guess. 
+When losing the game I noticed how the "Game over" message was showing at the right time but the hangman displayed was still incomplete (it still had a missing leg). This was confusing and deceptive as the user, seeing the image, could have been under the impression of having another guess. 
 
 **Fix** :
 To solve this I have added `self.print_lives()` so that when they loose the game a full hangman shows too making clear that they have used all the lives. 
@@ -134,7 +134,13 @@ The project has been deployed using Heroku. Here are the step to follow for the 
 
 
 
-### Cloning & Forking
+### Forking & Cloning
+To fork this repository click on the "Fork" button in the top right of the repository in Github. 
+
+To clone this repository:
+1. Click the "Code" button in the repository. 
+2. Copy the clone link.
+3. Use git to clone the copied link: `git clone LINK`. 
 
 ___
 ## Credits
