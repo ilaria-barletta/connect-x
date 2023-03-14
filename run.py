@@ -112,7 +112,9 @@ def rules():
     print("You have the complete english alphabet to choose from.")
     print("Pick the right letter and you’ll be closer to the solution.")
     print("Pick the wrong one and one life will be taken from you.")
-    print("You can even ask for one hint. Use it wisely.")
+    print("You can ask for one hint. Use it before it's too late!")
+    print("You won't be able to ask for one if you're only 1 letter")
+    print("away from the victory.")
     print("Thread lightly, you have only 6 lives.")
     print("Like a cat, more or less. Have fun!")
     options = {

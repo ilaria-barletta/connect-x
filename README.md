@@ -7,38 +7,44 @@ Here is the live version of my project (!!!!!!add link once deployed)
 ___
 ## How to play
 
-The game starts with a welcome screen where the user finds the title of the game and 3 options. They can go to the rules, start the game, or exit the game. To start the game the user needs to select the number matching the "start" option. At this point they are provided with new options with different levels as the game consists of 3 difficulty levels. There is an easy level where the word that they need to guess is a short, there is an intermediate level for medium lenght words and an hard level for long words. Once the user selects the preferred level, they are asked to confirm their choice before proceeding. When they are happy with their choice, the game can start. The user starts guessing letters and if they haven't used one already they can also ask for a hint so that a random letter is added to the screen for them. The user has only 1 hint per game and 6 lives, one life will be taken from them everytime they pick the wrong letter. The game ends either when the user successfully guesses the word while still alive or if they use all their lives and they die. A new set of option with the opportunity to start a new game or exit appears to them after every win or every defeat. 
+The game starts with a welcome screen where the user finds the title of the game and 3 options. They can go to the rules, start the game, or exit the game. To start the game the user needs to select the number matching the "start" option. At this point they are provided with new options with different levels as the game consists of 3 difficulty levels. There is an easy level where the word that they need to guess is short (4/5 letters), there is an intermediate level for medium lenght words (7/8 letters) and an hard level for long words (from 10 letters). Once the user selects the preferred level, they are asked once againto confirm their choice before proceeding. When they are happy with their choice, the game can start. The user starts guessing letters and if they haven't used one already they can also ask for a hint so that a random letter from the mistery word is added to the screen for them. The user has only 1 hint per game and 6 lives, one life will be taken from them every time they pick the wrong letter. The game ends either when the user successfully guesses the word while still alive or if they use all their lives and they die. A new set of options with the opportunity to start a new game or exit appears to them after every win/defeat. 
 
 ___
 ## Features
 
 ### Existing Features
 1. <u>Welcome page :</u><br>
-This is the first sceen the user faces when they start the game. They have 3 options: go to the rules, start the game or exit the game. The imput they can provide and will be accepted by the game is stricly one of the number given with the option. If they type in an invalid character an error message will be shown asking them to select a valid option
-![The welcome page consists of the name of the game and 3 options for the user: rules, start or exit the game](images/hangman_welcome.png)
+This is the first sceen the user faces when they start the game. They have 3 options: go to the rules, start the game or exit the game. The imput they can provide and will be accepted by the game is stricly one of the number given with the option. If they type in an invalid character an error message will be shown asking them to select a valid option.
+
+![The welcome page consists of the name of the game and 3 options for the user: rules, start or exit the game](images/hangman_start_screen.png)
 
 2. <u>Rules:</u><br>
-If the user wants to see the rules of the game they can do so selecting the number responding to that option. They will be shown a quick set of rules in order to understand how to play. Pick a letter, if it is present in the word well done, if not they will loose a life. They have limited lives and the option to ask for a little help, hint, only once during the game. From the rules screen they then have the option to start the game or exit.
+The rules of the game is a set of instruction that the user can access by selecting the number responding to that option. Here they are informed about the lives they have available and the hint they can use. From the rules screen they then have the option to start the game or exit.
 ![The rules page is the explanation of the game](images/hangman_rules.png)
 
 3. <u>Exit:</u><br>
 This is just a quick message shown to the user when they want to exit the game and leave the terminal. 
-![The exit page is a goodbye message to the user when they decide to leave the game](images/hangman_exit.png)
+![The exit page is a goodbye message to the user when they decide to leave the game](images/hangman_exit_screen.png)
 
 4. <u>Play game:</u><br>
-If the user follows the instructions and decides to proceed in order to play a game they will be given the option to select their preferred difficulty level. The game has 3 levels: easy, intermediate and hard. The difference in levels depends on the lenght of the words they need to guess in order to win. Easy has short words (4/5 letters), intermediate has medium lenght words and hard has particularly long/hard words. When they pick the level they are then asked if they are happy with their choice and if they are,the game begins. 
-![The play game is the actual game where the user can input letters, ask for hint and see the hangan loosing lives if the guesses are wrong](images/hangman_start_game.png)
+If the user follows the instructions and decides to proceed in order to play a game they will be given the option to select their preferred difficulty level. The game has 3 levels: easy, intermediate and hard. The difference in levels depends on the lenght of the words they need to guess in order to win. Easy has short words (4/5 letters), intermediate has medium lenght words and hard has particularly long/hard words. 
+![The game is made of three levels](images/hangman_levels.png)
 
-5. <u>Input Validation:</u><br>
-Multiple aspects have been covered here in order to make sure the user enters a valid input. When they are asked to guess a letter, only one letter can be accepted. No numbers, no multiple letters, or any non-letter character will be accepted. If the user types a capital letter, that is accepted and the lower method has been used to automatically convert it to a lower character. 
-![the input validation is a series of rules in order to check if the input given by the user is valid and can be accepted](images/hangman_input_validation_guesses.png)
+When they pick their preferred level they are then asked if they are happy with their choice and if they are,the game begins. 
+
+![The user is asked to confirm their level choice](images/hangman_level_confirmation.png)
+
+Once they confirm their choice, the actual game starts. The user sees an hagman structure, with empty spaces where they are asked to put letters. They are asked to give a letter or type `hint` in order to get a little help.The user is allowed to ask for one hint each time they play the game. The hint can be invoked up until the second to last guess hence they can't use it to win the game. As soon as they are no longer allowed to ask for a hint they will be given only the option to enter a letter.
+
+![The game shows an hangman, spaces where to put letters and a request to type a guess or hint ](images/hangman_start_game.png)
+![The possiility to request a hint will disappear if the user is just one letter away from completing the word](images/hangman_hint.png)
 
 6. <u>End of game:</u><br>
-The game can either end when the user has guessed all the letters not using all the lives hence staying alive or when they haven't completed the word but they have finished their lives. In the first scenario they won the game and a winning message will be displayes, in the second scenario they have lost and will be informed of the same via a "you have died" message. In both cases they will be asked if they want to play again and offered options (start or exit). 
+The game can either end when the user has guessed all the letters not using all the lives hence staying alive or when they haven't completed the word but they have finished their lives. In the first scenario they won the game and a winning message will be displayes, in the second scenario they have lost and will be informed of the same via a "Game over" message. In both cases they will be asked if they want to play again and offered options (start or exit). 
 ![The game can end either when the user wins or when they used all their lives](images/hangman_win_loose.png)
 
 7. <u>Word sheet:</u>
-The words are loaded from https://docs.google.com/spreadsheets/d/1aRm2vaK6hhwBCVrdoNGkP30kM_ICPRoBVCcb7OAEG1s/edit?usp=sharing 
+The words for the game are loaded from https://docs.google.com/spreadsheets/d/1aRm2vaK6hhwBCVrdoNGkP30kM_ICPRoBVCcb7OAEG1s/edit?usp=sharing 
 
 ### Future Features
 1. Add the option to select a word category to pick from (movies, books, songs)
@@ -55,8 +61,19 @@ The game class handles each time the user starts a new game. Every time a new ga
 The Words class loads a list of words from a google sheet and then stores them in a list according to their difficulty. The Word class has a function to get a random word based on a difficulty, which is used by the game class when a new game starts. 
 ___
 ## Testing
-I have tested the project manually in each part by playing the game multiple times. I have made sure multiple scenarios were covered as in what kind of input the user can use and what will and won't be accepted.
-I have as well tested the code using the CI Python Linter and it showed no errors ![Validator screenshot showing the outcome of python code testing](images/Hangman_validator.png)
+The game has been tested both manually and using a validator to make sure no issues are present in the code itself or bugs while playing the game. 
+
+### Validator
+I have tested the code using the CI Python Linter and it showed no errors.
+![Validator screenshot showing the outcome of python code testing](images/hangaman_code_validator.png)
+
+### Manual testing
+I have tested the project manually in each part by playing the game multiple times. I have made sure multiple scenarios were covered as in what kind of input the user can use and what will and won't be accepted. When it comes to the options only one of the options listed will be accepted. The options are indicated with numbers so only a number matching on of the options on screen will let the user process. In any other case an invalid message will be shown with the request to provide a valid option. 
+![Input testing for options](images/hangman_%20options_input_validation.png)
+
+When in the game the user needs to provide guesses. This scenario has been extensively tested as well adding validation for all the occurrencies that came to mind: a number, multiple characters, an empty space, a special character or a letter present in the word that had been already guessed before. All these cases will prompt a message asking the user to try again. If the guess is a single letter but capitalized, it will be accepted and automatically converted to lowercase using the lower method. 
+![Input testing for guesses](images/hangman_guesses_input_validation.png)
+
 
 ### Fixed Bugs
 `1`
@@ -86,6 +103,20 @@ When loosing the game I noticed how the "Game over" message was showing at the r
 
 **Fix** :
 To solve this I have added `self.print_lives()` so that when they loose the game a full hangman shows too making clear that they have used all the lives. 
+
+`3`
+
+**Expected** :
+When only one letter is missing from the word, the user can't ask for a hint as it would automatically result in a win.  
+
+**Testing** :
+I played the game multiple times guessing the right words and waiting to ask for a hint when just one letter was missing.  
+
+**Result** :
+I was able to ask for a hint when one letter was missing hence winning. This was not the wantend outcome
+
+**Fix** :
+To solve this I have modified the code originally created to `has_one_letter_remaining =len(unique_letters) == len(self.correct_guesses) + 1`. The +1 solved the issue. 
 
 
 ### Remaining Bugs 
