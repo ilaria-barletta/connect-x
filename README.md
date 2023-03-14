@@ -31,7 +31,7 @@ If the user follows the instructions and decides to proceed in order to play a g
 
 5. <u>Input Validation:</u><br>
 Multiple aspects have been covered here in order to make sure the user enters a valid input. When they are asked to guess a letter, only one letter can be accepted. No numbers, no multiple letters, or any non-letter character will be accepted. If the user types a capital letter, that is accepted and the lower method has been used to automatically convert it to a lower character. 
-![the input validation is a series of rules in order to check if the input given by the user is valid and can be accepted](images/hangman_input_validation.png)
+![the input validation is a series of rules in order to check if the input given by the user is valid and can be accepted](images/hangman_input_validation_guesses.png)
 
 6. <u>End of game:</u><br>
 The game can either end when the user has guessed all the letters not using all the lives hence staying alive or when they haven't completed the word but they have finished their lives. In the first scenario they won the game and a winning message will be displayes, in the second scenario they have lost and will be informed of the same via a "you have died" message. In both cases they will be asked if they want to play again and offered options (start or exit). 

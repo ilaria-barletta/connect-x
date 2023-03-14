@@ -1,4 +1,4 @@
-import random # this is needed to pick a random word
+import random  # this is needed to pick a random word
 import gspread
 from google.oauth2.service_account import Credentials
 
@@ -266,7 +266,7 @@ class Game:
         '''This function defines when the user can request an hint'''
         unique_letters = set(self.word)
         has_one_letter_remaining = \
-            len(unique_letters) == len(self.correct_guesses) - 1
+            len(unique_letters) == len(self.correct_guesses) + 1
         return not has_one_letter_remaining and not self.hint_used
 
     def has_guessed_all_letters(self):
