@@ -124,6 +124,18 @@ No bugs remaining
 
 ___
 ## Deployment
+The project has been deployed using Heroku. Here are the step to follow for the deployement:
+
+1. Access your Heroku account and click on "create a new app", name the app and select the region before hitting the create app button.   
+2. Navigate to the settings tab and create config vars according to the files that need to be made known to heroku for the app to be able to work
+3. Add buildpacks in order to install the other dependencies needed. In particular add Python and NodeJS in this order and then hit on Add buildpack
+4. Navigate to the deploy section and select Github as deployment method. After confirming that we want to connect to Github we can then search for the Github repository name. Once we find it we can click on connect. 
+5. Scroll down and select enable automatic deploys
+
+
+
+### Cloning & Forking
+
 ___
 ## Credits
 
